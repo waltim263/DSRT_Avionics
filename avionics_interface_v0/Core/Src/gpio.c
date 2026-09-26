@@ -54,10 +54,13 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, SPI1_CS_Pin|SPI1_CSA15_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, BNO085_CS_Pin|BNO085_RST_Pin|BMP388_CS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, SPI2_CS_Pin|SPI2_CSB9_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, BNO085_WAKE_Pin|RFM95_CS_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(RFM95_RST_GPIO_Port, RFM95_RST_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -73,19 +76,38 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF7_USART2;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : SPI1_CS_Pin SPI1_CSA15_Pin */
-  GPIO_InitStruct.Pin = SPI1_CS_Pin|SPI1_CSA15_Pin;
+  /*Configure GPIO pins : BNO085_CS_Pin BNO085_RST_Pin BMP388_CS_Pin */
+  GPIO_InitStruct.Pin = BNO085_CS_Pin|BNO085_RST_Pin|BMP388_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : SPI2_CS_Pin SPI2_CSB9_Pin */
-  GPIO_InitStruct.Pin = SPI2_CS_Pin|SPI2_CSB9_Pin;
+  /*Configure GPIO pins : BNO085_WAKE_Pin RFM95_CS_Pin */
+  GPIO_InitStruct.Pin = BNO085_WAKE_Pin|RFM95_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : RFM95_RST_Pin */
+  GPIO_InitStruct.Pin = RFM95_RST_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(RFM95_RST_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : BNO085_INT_Pin */
+  GPIO_InitStruct.Pin = BNO085_INT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(BNO085_INT_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : RFM95_G0_Pin */
+  GPIO_InitStruct.Pin = RFM95_G0_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(RFM95_G0_GPIO_Port, &GPIO_InitStruct);
 
 }
 

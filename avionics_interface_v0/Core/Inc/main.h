@@ -63,18 +63,26 @@ void Error_Handler(void);
 #define USART_TX_GPIO_Port GPIOA
 #define USART_RX_Pin GPIO_PIN_3
 #define USART_RX_GPIO_Port GPIOA
-#define SPI1_CS_Pin GPIO_PIN_4
-#define SPI1_CS_GPIO_Port GPIOA
-#define SPI2_CS_Pin GPIO_PIN_12
-#define SPI2_CS_GPIO_Port GPIOB
+#define BNO085_CS_Pin GPIO_PIN_4
+#define BNO085_CS_GPIO_Port GPIOA
+#define BNO085_WAKE_Pin GPIO_PIN_10
+#define BNO085_WAKE_GPIO_Port GPIOB
+#define RFM95_CS_Pin GPIO_PIN_12
+#define RFM95_CS_GPIO_Port GPIOB
+#define RFM95_RST_Pin GPIO_PIN_6
+#define RFM95_RST_GPIO_Port GPIOC
+#define BNO085_INT_Pin GPIO_PIN_7
+#define BNO085_INT_GPIO_Port GPIOC
+#define BNO085_RST_Pin GPIO_PIN_8
+#define BNO085_RST_GPIO_Port GPIOA
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
-#define SPI1_CSA15_Pin GPIO_PIN_15
-#define SPI1_CSA15_GPIO_Port GPIOA
-#define SPI2_CSB9_Pin GPIO_PIN_9
-#define SPI2_CSB9_GPIO_Port GPIOB
+#define BMP388_CS_Pin GPIO_PIN_15
+#define BMP388_CS_GPIO_Port GPIOA
+#define RFM95_G0_Pin GPIO_PIN_5
+#define RFM95_G0_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
