@@ -41,6 +41,9 @@ extern SD_HandleTypeDef hsd;
 void MX_SDIO_SD_Init(void);
 
 /* USER CODE BEGIN Prototypes */
+/* Same setup as MX_SDIO_SD_Init(), but returns an error instead of halting
+ * in Error_Handler() when no card answers. */
+HAL_StatusTypeDef SD_Card_Init(void);
 
 /* USER CODE END Prototypes */
 

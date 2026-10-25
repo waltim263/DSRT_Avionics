@@ -21,6 +21,7 @@
 #define AVIONICS_STATUS_BMP388    0x01U
 #define AVIONICS_STATUS_BNO085    0x02U
 #define AVIONICS_STATUS_RFM95     0x04U
+#define AVIONICS_STATUS_SD        0x08U  /* card found; nothing is logged to it yet */
 
 /**
  * Downlink packet, little-endian, 35 bytes. Sent after the 4 byte RadioHead

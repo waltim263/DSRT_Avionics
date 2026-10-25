@@ -5,6 +5,7 @@
 #include "avionics.h"
 #include "main.h"
 #include "spi.h"
+#include "sdio.h"
 #include "bmp388.h"
 #include "bno085.h"
 #include "rfm95.h"
@@ -75,6 +76,11 @@ void avionics_init(void)
                  RFM95_G0_GPIO_Port, RFM95_G0_Pin,
                  AVIONICS_RADIO_FREQ_MHZ, AVIONICS_RADIO_TX_DBM) == HAL_OK) {
     status |= AVIONICS_STATUS_RFM95;
+  }
+
+  /* The SD card is optional: without one the rest of the system still runs. */
+  if (SD_Card_Init() == HAL_OK) {
+    status |= AVIONICS_STATUS_SD;
   }
 
   g_telemetry.status = status;
